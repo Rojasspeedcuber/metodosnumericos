@@ -1,6 +1,6 @@
 import numpy as np
 
-def gauss_jacobi(A, b, x0, max_iterations=100, tolerance=1e-6):
+def gauss_jacobi(A, b, x0, max_iterations=100, tolerance=10e-5):
     n = len(A)
     x = np.array(x0, dtype=float)
     x_new = np.zeros_like(x)
@@ -11,12 +11,12 @@ def gauss_jacobi(A, b, x0, max_iterations=100, tolerance=1e-6):
             x_new[i] = (b[i] - sum_ax) / A[i, i]
         
         if np.allclose(x_new, x, atol=tolerance):
-            print(f"Converged after {iteration + 1} iterations.")
+            print(f"Convergiu depois de {iteration + 1} iterações.")
             return x_new
         
         x = x_new.copy()
     
-    print("Did not converge within the specified number of iterations.")
+    print("Não convergiu dentro do número especificado de iterações.")
     return x_new
 
 # Exemplo de uso
@@ -27,4 +27,4 @@ b = np.array([57, 20, -4], dtype=float)
 x0 = [0, 0, 0]
 
 solution = gauss_jacobi(A, b, x0)
-print("Solution:", solution)
+print("Solução:", solution)
