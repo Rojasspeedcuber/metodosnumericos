@@ -1,5 +1,3 @@
-from math import e
-
 def rungek_method(func, y0, t0, tn, h):
     # Lista para armazenar os resultados
     result = []
@@ -34,6 +32,6 @@ step_size = 0.5
 solution = rungek_method(equation, initial_y, initial_x, final_x, step_size)
 
 # Imprime a solução
-print("Solução usando o método de Euler:")
+print("Solução usando o método de Runge-Kutta:")
 for x, y in solution:
     print(f"x = {x}, y = {y}")
